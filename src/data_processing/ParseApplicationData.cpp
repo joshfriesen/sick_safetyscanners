@@ -319,13 +319,13 @@ void ParseApplicationData::setMonitoringCaseFlagsInApplicationOutputs(
 void ParseApplicationData::setSleepModeOutputInApplicationOutputs(
   std::vector<uint8_t>::const_iterator data_ptr, datastructure::ApplicationOutputs& outputs) const
 {
-  outputs.setSleepModeOutput(read_write_helper::readUint8LittleEndian(data_ptr + 193));
+  outputs.setSleepModeOutput(read_write_helper::readUint8LittleEndian(data_ptr + 196));
 }
 
 void ParseApplicationData::setErrorFlagsInApplicationOutputs(
   std::vector<uint8_t>::const_iterator data_ptr, datastructure::ApplicationOutputs& outputs) const
 {
-  uint8_t word8 = read_write_helper::readUint8LittleEndian(data_ptr + 194);
+  uint8_t word8 = read_write_helper::readUint8LittleEndian(data_ptr + 197);
 
   outputs.setHostErrorFlagContaminationWarning(static_cast<bool>(word8 & (0x01 << 0)));
   outputs.setHostErrorFlagContaminationError(static_cast<bool>(word8 & (0x01 << 1)));
@@ -404,7 +404,7 @@ void ParseApplicationData::setResultingVelocityFlagsInApplicationOutputs(
 void ParseApplicationData::setOutputFlagsinApplicationOutput(
   std::vector<uint8_t>::const_iterator data_ptr, datastructure::ApplicationOutputs& outputs) const
 {
-  uint8_t word8 = read_write_helper::readUint8LittleEndian(data_ptr + 259);
+  uint8_t word8 = read_write_helper::readUint8LittleEndian(data_ptr + 263);
 
   outputs.setFlagsSleepModeOutputIsValid(static_cast<bool>(word8 & (0x01 << 0)));
   outputs.setFlagsHostErrorFlagsAreValid(static_cast<bool>(word8 & (0x01 << 1)));
